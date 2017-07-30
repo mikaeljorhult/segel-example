@@ -13,22 +13,42 @@
             box-sizing: border-box;
         }
     </style>
-    <link href="https://unpkg.com/segel/dist/main.css" rel="stylesheet" />
+    <link href="https://unpkg.com/segel/dist/main.css" rel="stylesheet"/>
 </head>
 
 <body>
-    <div id="segel"
-         start="1483225200"
-         end="1483311600"
-    >
-        Segel could not be loaded.
-    </div>
+    <div id="segel"></div>
 
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/interact.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/interact.js/dist/interact.min.js"></script>
+    <script src="https://unpkg.com/moment/min/moment.min.js"></script>
     <script src="https://unpkg.com/segel"></script>
     <script>
-        Segel('#segel');
+      let today = moment().minutes(0).seconds(0);
+
+      Segel('#segel');
+
+      Segel.objects.add([
+        {id: 1, name: 'Conference Room A'},
+        {id: 2, name: 'Conference Room B'},
+        {id: 3, name: 'Video Conference 1'},
+        {id: 4, name: 'Video Conference 2'},
+        {id: 5, name: 'Video Conference 3'},
+        {id: 6, name: 'Ping Pong Table'}
+      ]);
+
+      Segel.bookings.add([
+        {id: 1, object: 1, start: today.clone().hours(8).format('X'), end: today.clone().hours(10).format('X')},
+        {id: 2, object: 1, start: today.clone().hours(11).format('X'), end: today.clone().hours(12).format('X')},
+        {id: 3, object: 1, start: today.clone().hours(13).format('X'), end: today.clone().hours(17).format('X')},
+        {id: 4, object: 2, start: today.clone().hours(7).minutes(30).format('X'), end: today.clone().hours(15).format('X')},
+        {id: 5, object: 4, start: today.clone().hours(10).format('X'), end: today.clone().hours(12).format('X')},
+        {id: 6, object: 4, start: today.clone().hours(14).format('X'), end: today.clone().hours(16).format('X')},
+        {id: 7, object: 5, start: today.clone().hours(10).format('X'), end: today.clone().hours(12).format('X')},
+        {id: 8, object: 5, start: today.clone().hours(14).format('X'), end: today.clone().hours(16).format('X')},
+        {id: 9, object: 6, start: today.clone().hours(9).minutes(30).format('X'), end: today.clone().hours(12).minutes(30).format('X')},
+        {id: 10, object: 6, start: today.clone().hours(13).format('X'), end: today.clone().hours(16).format('X')},
+      ]);
     </script>
 </body>
 
