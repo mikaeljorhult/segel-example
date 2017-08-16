@@ -21,10 +21,9 @@
 
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://unpkg.com/interact.js/dist/interact.min.js"></script>
-    <script src="https://unpkg.com/moment/min/moment.min.js"></script>
     <script src="https://unpkg.com/segel"></script>
     <script>
-      let today = moment().minutes(0).seconds(0);
+      let today = new Date();
 
       Segel('#segel');
 
@@ -38,16 +37,16 @@
       ]);
 
       Segel.bookings.add([
-        {id: 1, object: 1, start: today.clone().hours(8).format('X'), end: today.clone().hours(10).format('X')},
-        {id: 2, object: 1, start: today.clone().hours(11).format('X'), end: today.clone().hours(12).format('X')},
-        {id: 3, object: 1, start: today.clone().hours(13).format('X'), end: today.clone().hours(17).format('X')},
-        {id: 4, object: 2, start: today.clone().hours(7).minutes(30).format('X'), end: today.clone().hours(15).format('X')},
-        {id: 5, object: 4, start: today.clone().hours(10).format('X'), end: today.clone().hours(12).format('X')},
-        {id: 6, object: 4, start: today.clone().hours(14).format('X'), end: today.clone().hours(16).format('X')},
-        {id: 7, object: 5, start: today.clone().hours(10).format('X'), end: today.clone().hours(12).format('X')},
-        {id: 8, object: 5, start: today.clone().hours(14).format('X'), end: today.clone().hours(16).format('X')},
-        {id: 9, object: 6, start: today.clone().hours(9).minutes(30).format('X'), end: today.clone().hours(12).minutes(30).format('X')},
-        {id: 10, object: 6, start: today.clone().hours(13).format('X'), end: today.clone().hours(16).format('X')},
+        {id: 1, object: 1, start: today.setHours(8, 0, 0, 0), end: today.setHours(10, 0, 0, 0)},
+        {id: 2, object: 1, start: today.setHours(11, 0, 0, 0), end: today.setHours(12, 0, 0, 0)},
+        {id: 3, object: 1, start: today.setHours(13, 0, 0, 0), end: today.setHours(17, 0, 0, 0)},
+        {id: 4, object: 2, start: today.setHours(7, 30, 0, 0), end: today.setHours(15, 0, 0, 0)},
+        {id: 5, object: 4, start: today.setHours(10, 0, 0, 0), end: today.setHours(12, 0, 0, 0)},
+        {id: 6, object: 4, start: today.setHours(14, 0, 0, 0), end: today.setHours(16, 0, 0, 0)},
+        {id: 7, object: 5, start: today.setHours(10, 0, 0, 0), end: today.setHours(12, 0, 0, 0)},
+        {id: 8, object: 5, start: today.setHours(14, 0, 0, 0), end: today.setHours(16, 0, 0, 0)},
+        {id: 9, object: 6, start: today.setHours(9, 30, 0, 0), end: today.setHours(12, 30, 0, 0)},
+        {id: 10, object: 6, start: today.setHours(13, 0, 0, 0), end: today.setHours(16, 0, 0, 0)}
       ]);
     </script>
 </body>
